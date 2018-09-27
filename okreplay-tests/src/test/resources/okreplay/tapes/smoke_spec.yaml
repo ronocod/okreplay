@@ -5,20 +5,31 @@ interactions:
     method: GET
     uri: http://httpbin.org/robots.txt
     headers:
-      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
-      Accept-Encoding: gzip
-      Host: httpbin.org
-      Proxy-Connection: keep-alive
-      User-Agent: Java/1.7.0_05
+      Accept:
+      - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Encoding:
+      - gzip
+      Host:
+      - httpbin.org
+      Proxy-Connection:
+      - keep-alive
+      User-Agent:
+      - Java/1.7.0_05
   response:
     status: 200
     headers:
-      Access-Control-Allow-Origin: '*'
-      Connection: keep-alive
-      Content-Length: '30'
-      Content-Type: text/plain
-      Date: Tue, 01 Oct 2013 21:53:47 GMT
-      Server: gunicorn/0.17.4
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '30'
+      Content-Type:
+      - text/plain
+      Date:
+      - Tue, 01 Oct 2013 21:53:47 GMT
+      Server:
+      - gunicorn/0.17.4
     body: |
       User-agent: *
       Disallow: /deny
@@ -27,20 +38,31 @@ interactions:
     method: GET
     uri: http://httpbin.org/html
     headers:
-      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
-      Accept-Encoding: gzip
-      Host: httpbin.org
-      Proxy-Connection: keep-alive
-      User-Agent: Java/1.7.0_05
+      Accept:
+      - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Encoding:
+      - gzip
+      Host:
+      - httpbin.org
+      Proxy-Connection:
+      - keep-alive
+      User-Agent:
+      - Java/1.7.0_05
   response:
     status: 200
     headers:
-      Access-Control-Allow-Origin: '*'
-      Connection: keep-alive
-      Content-Length: '3741'
-      Content-Type: text/html; charset=utf-8
-      Date: Tue, 01 Oct 2013 21:53:49 GMT
-      Server: gunicorn/0.17.4
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '3741'
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Tue, 01 Oct 2013 21:53:49 GMT
+      Server:
+      - gunicorn/0.17.4
     body: |-
       <!DOCTYPE html>
       <html>
@@ -60,19 +82,29 @@ interactions:
     method: GET
     uri: http://httpbin.org/get
     headers:
-      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
-      Host: httpbin.org
-      Proxy-Connection: keep-alive
-      User-Agent: Java/1.7.0_05
+      Accept:
+      - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Host:
+      - httpbin.org
+      Proxy-Connection:
+      - keep-alive
+      User-Agent:
+      - Java/1.7.0_05
   response:
     status: 200
     headers:
-      Access-Control-Allow-Origin: '*'
-      Connection: keep-alive
-      Content-Length: '279'
-      Content-Type: application/json
-      Date: Tue, 01 Oct 2013 21:53:58 GMT
-      Server: gunicorn/0.17.4
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '279'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 01 Oct 2013 21:53:58 GMT
+      Server:
+      - gunicorn/0.17.4
     body: |-
       {
         "url": "http://httpbin.org/get",
@@ -91,21 +123,33 @@ interactions:
     method: GET
     uri: http://httpbin.org/gzip
     headers:
-      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
-      Accept-Encoding: gzip
-      Host: httpbin.org
-      Proxy-Connection: keep-alive
-      User-Agent: Java/1.7.0_05
+      Accept:
+      - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Encoding:
+      - gzip
+      Host:
+      - httpbin.org
+      Proxy-Connection:
+      - keep-alive
+      User-Agent:
+      - Java/1.7.0_05
   response:
     status: 200
     headers:
-      Access-Control-Allow-Origin: '*'
-      Connection: keep-alive
-      Content-Encoding: gzip
-      Content-Length: '225'
-      Content-Type: application/json
-      Date: Tue, 01 Oct 2013 21:53:55 GMT
-      Server: gunicorn/0.17.4
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '225'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 01 Oct 2013 21:53:55 GMT
+      Server:
+      - gunicorn/0.17.4
     body: |-
       {
         "gzipped": true,
@@ -125,20 +169,31 @@ interactions:
     method: GET
     uri: http://httpbin.org/redirect/1
     headers:
-      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
-      Host: httpbin.org
-      Proxy-Connection: keep-alive
-      User-Agent: Java/1.7.0_05
+      Accept:
+      - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Host:
+      - httpbin.org
+      Proxy-Connection:
+      - keep-alive
+      User-Agent:
+      - Java/1.7.0_05
   response:
     status: 302
     headers:
-      Access-Control-Allow-Origin: '*'
-      Connection: keep-alive
-      Content-Length: '215'
-      Content-Type: text/html; charset=utf-8
-      Date: Tue, 01 Oct 2013 21:53:57 GMT
-      Location: /get
-      Server: gunicorn/0.17.4
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '215'
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Tue, 01 Oct 2013 21:53:57 GMT
+      Location:
+      - /get
+      Server:
+      - gunicorn/0.17.4
     body: |-
       <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
       <title>Redirecting...</title>
@@ -149,19 +204,29 @@ interactions:
     method: GET
     uri: https://httpbin.org/get
     headers:
-      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
-      Connection: keep-alive
-      Host: httpbin.org
-      User-Agent: Java/1.7.0_05
+      Accept:
+      - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Connection:
+      - keep-alive
+      Host:
+      - httpbin.org
+      User-Agent:
+      - Java/1.7.0_05
   response:
     status: 200
     headers:
-      Access-Control-Allow-Origin: '*'
-      Connection: keep-alive
-      Content-Length: '279'
-      Content-Type: application/json
-      Date: Tue, 01 Oct 2013 21:54:01 GMT
-      Server: gunicorn/0.17.4
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '279'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 01 Oct 2013 21:54:01 GMT
+      Server:
+      - gunicorn/0.17.4
     body: |-
       {
         "headers": {
@@ -180,23 +245,36 @@ interactions:
     method: POST
     uri: https://httpbin.org/post
     headers:
-      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
-      Connection: close
-      Content-Length: '13'
-      Content-type: application/x-www-form-urlencoded
-      Host: httpbin.org
-      Proxy-Connection: keep-alive
-      User-Agent: Java/1.7.0_05
+      Accept:
+      - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Connection:
+      - close
+      Content-Length:
+      - '13'
+      Content-type:
+      - application/x-www-form-urlencoded
+      Host:
+      - httpbin.org
+      Proxy-Connection:
+      - keep-alive
+      User-Agent:
+      - Java/1.7.0_05
     body: message=O HAI
   response:
     status: 200
     headers:
-      Access-Control-Allow-Origin: '*'
-      Connection: keep-alive
-      Content-Length: '450'
-      Content-Type: application/json
-      Date: Tue, 01 Oct 2013 21:54:04 GMT
-      Server: gunicorn/0.17.4
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '450'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 01 Oct 2013 21:54:04 GMT
+      Server:
+      - gunicorn/0.17.4
     body: |-
       {
         "files": {},

@@ -25,10 +25,18 @@ interactions:
   request:
     method: GET
     uri: http://icanhascheezburger.com/
-    headers: {Accept-Language: "en-GB,en", If-None-Match: b00b135}
+    headers: 
+      Accept-Language: 
+      - "en-GB,en"
+      If-None-Match: 
+      - b00b135
   response:
     status: 200
-    headers: {Content-Type: text/plain, Content-Language: en-GB}
+    headers: 
+      Content-Type: 
+      - text/plain
+      Content-Language: 
+      - en-GB
     body: O HAI!
 """
     when:
@@ -97,10 +105,22 @@ interactions:
   request:
     method: GET
     uri: http://icanhascheezburger.com/
-    headers: {Accept-Language: "en-GB,en", If-None-Match: b00b135}
+    headers: 
+      Accept-Language: 
+      - "en-GB,en"
+      If-None-Match: 
+      - b00b135
   response:
     status: 200
-    headers: {Content-Type: text/plain, Content-Language: en-GB}
+    headers: 
+      Content-Type: 
+      - text/plain
+      Content-Language: 
+      - en-GB
+      Set-Cookie:
+      - key1=value1
+      Set-Cookie:
+      - key2=value2
     body: O HAI!
 """
     when:
@@ -109,6 +129,7 @@ interactions:
     then:
     tape.interactions[0].request.header(ACCEPT_LANGUAGE) == "en-GB,en"
     tape.interactions[0].request.header(IF_NONE_MATCH) == "b00b135"
+    tape.interactions[0].response.headers(SET_COOKIE) == ["key1=value1", "key2=value2"]
   }
 
   void "barfs on non-yaml data"() {
@@ -143,10 +164,18 @@ interactions:
   request:
     method: GET
     uri: http://icanhascheezburger.com/
-    headers: {Accept-Language: "en-GB,en", If-None-Match: b00b135}
+    headers: 
+      Accept-Language:
+      - "en-GB,en"
+      If-None-Match:
+      - b00b135
   response:
     status: 200
-    headers: {Content-Type: text/plain, Content-Language: en-GB}
+    headers: 
+      Content-Type:
+      - text/plain
+      Content-Language:
+      - en-GB
     body: O HAI!
 """
     when:

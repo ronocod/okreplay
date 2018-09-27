@@ -48,6 +48,8 @@ class WriteTapeToYamlSpec extends Specification {
         .body(ResponseBody.create(MediaType.parse("text/plain"), "O HAI!"))
         .addHeader(CONTENT_LANGUAGE, "en-GB")
         .addHeader(CONTENT_ENCODING, "none")
+        .addHeader(SET_COOKIE, "cookie1=value1")
+        .addHeader(SET_COOKIE, "cookie2=value2")
         .build()
 
     failureResponse = new RecordedResponse.Builder()

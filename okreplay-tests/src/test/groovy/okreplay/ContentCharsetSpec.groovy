@@ -75,8 +75,10 @@ interactions:
   response:
     status: 200
     headers:
-      Content-Type: text/plain;charset=$charset
-      Content-Encoding: none
+      Content-Type: 
+      - text/plain;charset=$charset
+      Content-Encoding: 
+      - none
     body: \u00a3
 """
     def tape = loader.readFrom(new StringReader(yaml))

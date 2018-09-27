@@ -43,14 +43,19 @@ interactions:
     method: GET
     uri: $url
     headers:
-      Accept: text/plain
-      X-Whatever: some random value
+      Accept: 
+      - text/plain
+      X-Whatever: 
+      - some random value
   response:
     status: 200
     headers:
-      Content-Length: '12'
-      Content-Type: text/plain
-      Date: Tue, 01 Oct 2013 21:53:58 GMT
+      Content-Length: 
+      - '12'
+      Content-Type:
+      - text/plain
+      Date: 
+      - Tue, 01 Oct 2013 21:53:58 GMT
     body: Hello World!
 """
     }

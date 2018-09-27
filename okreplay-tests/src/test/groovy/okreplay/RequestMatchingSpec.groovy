@@ -28,7 +28,9 @@ interactions:
     uri: http://xkcd.com/
   response:
     status: 200
-    headers: {Content-Type: text/plain}
+    headers: 
+      Content-Type: 
+      - text/plain
     body: GET method response from xkcd.com
 - recorded: 2011-08-23T20:24:33.000Z
   request:
@@ -36,7 +38,9 @@ interactions:
     uri: http://xkcd.com/
   response:
     status: 200
-    headers: {Content-Type: text/plain}
+    headers: 
+      Content-Type: 
+      - text/plain
     body: POST method response from xkcd.com
 - recorded: 2011-08-23T20:24:33.000Z
   request:
@@ -44,7 +48,9 @@ interactions:
     uri: http://qwantz.com/
   response:
     status: 200
-    headers: {Content-Type: text/plain}
+    headers: 
+      Content-Type: 
+      - text/plain
     body: GET method response from qwantz.com
 """
 
@@ -83,7 +89,9 @@ interactions:
     uri: http://xkcd.com/936/
   response:
     status: 200
-    headers: {Content-Type: text/plain}
+    headers: 
+      Content-Type: 
+      - text/plain
     body: GET method response from xkcd.com
 """
 
@@ -113,11 +121,13 @@ interactions:
     method: GET
     uri: http://httpbin.org/get
     headers:
-      Accept: application/json
+      Accept:
+      - application/json
   response:
     status: 200
     headers:
-      Content-Type: application/json
+      Content-Type:
+      - application/json
     body: |-
       { "message": "JSON data" }
 - recorded: 2013-10-01T13:34:33.000Z
@@ -125,11 +135,13 @@ interactions:
     method: GET
     uri: http://httpbin.org/get
     headers:
-      Accept: text/plain
+      Accept:
+      - text/plain
   response:
     status: 200
     headers:
-      Content-Type: text/plain
+      Content-Type:
+      - text/plain
     body: Plain text data
 """
 

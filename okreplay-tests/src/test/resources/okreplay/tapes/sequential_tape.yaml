@@ -6,10 +6,10 @@ interactions:
     method: GET
     uri: http://freeside.co/betamax
     headers:
-      Accept: '*/*'
-      Accept-Encoding: gzip,deflate
-      Host: freeside.co
-      Proxy-Connection: Keep-Alive
+      - Accept: '*/*'
+      - Accept-Encoding: gzip,deflate
+      - Host: freeside.co
+      - Proxy-Connection: Keep-Alive
   response:
     status: 200
     headers:

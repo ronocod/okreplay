@@ -21,7 +21,7 @@ public abstract class YamlRecordedMessage {
 
   String contentType() {
     List<String> valueList = headers.get(CONTENT_TYPE);
-    if (valueList.isEmpty()) {
+    if (valueList == null || valueList.isEmpty()) {
       return DEFAULT_CONTENT_TYPE;
     }
     String header = valueList.get(0);
@@ -63,6 +63,8 @@ public abstract class YamlRecordedMessage {
         headerValues.add(value);
       }
     }
-    return Headers.of((String[]) headerValues.toArray());
+    String[] headerValuesArray = new String[headerValues.size()];
+    headerValues.toArray(headerValuesArray);
+    return Headers.of(headerValuesArray);
   }
 }

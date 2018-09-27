@@ -2,6 +2,7 @@ package okreplay;
 
 import java.net.URI;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 import okhttp3.HttpUrl;
@@ -13,7 +14,7 @@ public class YamlRecordedRequest extends YamlRecordedMessage {
   private final String method;
   private final URI uri;
 
-  YamlRecordedRequest(Map<String, String> headers, Object body, String method, URI uri) {
+  YamlRecordedRequest(Map<String, List<String>> headers, Object body, String method, URI uri) {
     super(headers, body);
     this.method = method;
     this.uri = uri;
@@ -21,7 +22,7 @@ public class YamlRecordedRequest extends YamlRecordedMessage {
 
   /** For SnakeYAML */
   @SuppressWarnings("unused") public YamlRecordedRequest() {
-    this(Collections.<String, String>emptyMap(), null, null, null);
+    this(Collections.<String, List<String>>emptyMap(), null, null, null);
   }
 
   public String method() {
@@ -45,7 +46,7 @@ public class YamlRecordedRequest extends YamlRecordedMessage {
       requestBody = RequestBody.create(mediaType, new byte[0]);
     }
     return new RecordedRequest.Builder()
-        .headers(okhttp3.Headers.of(headers()))
+        .headers(headersForOkHttp(headers()))
         .method(method, requestBody)
         .url(HttpUrl.get(uri))
         .build();

@@ -1,6 +1,8 @@
 package okreplay;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -28,11 +30,16 @@ abstract class RecordedMessage extends AbstractMessage {
     return body;
   }
 
-  LinkedHashMap<String, String> headersAsMap() {
-    Map<String, String> result = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+  LinkedHashMap<String, List<String>> headersAsMap() {
+    Map<String, List<String>> result = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
     for (int i = 0, size = headers.size(); i < size; i++) {
       String name = headers.name(i);
-      result.put(name, headers.value(i));
+      List<String> values = result.get(name);
+      if (values == null) {
+        values = new ArrayList<>();
+        result.put(name, values);
+      }
+      values.add(headers.value(i));
     }
     return new LinkedHashMap<>(result);
   }

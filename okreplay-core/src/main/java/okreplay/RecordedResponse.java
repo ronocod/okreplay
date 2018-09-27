@@ -1,7 +1,6 @@
 package okreplay;
 
 import java.io.IOException;
-import java.util.Map;
 
 import okhttp3.Headers;
 import okhttp3.MediaType;
@@ -16,12 +15,6 @@ class RecordedResponse extends RecordedMessage implements Response {
     super(builder.headers.build(), builder.body);
     this.code = builder.code;
     this.protocol = builder.protocol;
-  }
-
-  RecordedResponse(int code, Map<String, String> headers, byte[] body) {
-    super(Headers.of(headers), body);
-    this.code = code;
-    this.protocol = Protocol.HTTP_1_1;
   }
 
   @Override public int code() {

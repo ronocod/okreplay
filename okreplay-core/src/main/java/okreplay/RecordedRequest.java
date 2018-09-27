@@ -2,8 +2,6 @@ package okreplay;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Collections;
-import java.util.Map;
 
 import okhttp3.CacheControl;
 import okhttp3.Headers;
@@ -23,20 +21,6 @@ class RecordedRequest extends RecordedMessage implements Request {
     super(builder.headers.build(), builder.body);
     this.url = builder.url;
     this.method = builder.method;
-  }
-
-  RecordedRequest(String method, String url) {
-    this(method, url, Collections.<String, String>emptyMap());
-  }
-
-  RecordedRequest(String method, String url, Map<String, String> headers) {
-    this(method, url, headers, null);
-  }
-
-  RecordedRequest(String method, String url, Map<String, String> headers, byte[] body) {
-    super(Headers.of(headers), body);
-    this.method = method;
-    this.url = HttpUrl.parse(url);
   }
 
   @Override public String method() {

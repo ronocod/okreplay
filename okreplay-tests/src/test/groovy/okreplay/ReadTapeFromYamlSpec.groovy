@@ -67,19 +67,35 @@ interactions:
   request:
     method: GET
     uri: http://icanhascheezburger.com/
-    headers: {Accept-Language: "en-GB,en", If-None-Match: b00b135}
+    headers: 
+      Accept-Language:
+      - "en-GB,en"
+      If-None-Match: 
+      - b00b135
   response:
     status: 200
-    headers: {Content-Type: text/plain, Content-Language: en-GB}
+    headers: 
+      Content-Type: 
+      - text/plain
+      Content-Language: 
+      - en-GB
     body: O HAI!
 - recorded: 2011-08-23T23:41:40.000Z
   request:
     method: GET
     uri: http://en.wikipedia.org/wiki/Hyper_Text_Coffee_Pot_Control_Protocol
-    headers: {Accept-Language: "en-GB,en", If-None-Match: b00b135}
+    headers: 
+      Accept-Language:
+      - "en-GB,en"
+      If-None-Match: 
+      - b00b135
   response:
     status: 418
-    headers: {Content-Type: text/plain, Content-Language: en-GB}
+    headers: 
+      Content-Type: 
+      - text/plain
+      Content-Language: 
+      - en-GB
     body: I'm a teapot
 """
     when:
@@ -119,7 +135,6 @@ interactions:
       - en-GB
       Set-Cookie:
       - key1=value1
-      Set-Cookie:
       - key2=value2
     body: O HAI!
 """

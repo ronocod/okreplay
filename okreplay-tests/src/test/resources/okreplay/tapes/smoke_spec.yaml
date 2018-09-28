@@ -301,19 +301,29 @@ interactions:
     method: GET
     uri: http://httpbin.org
     headers:
-      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
-      Host: httpbin.org
-      Proxy-Connection: keep-alive
-      User-Agent: Java/1.7.0_05
+      Accept:
+      - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Host:
+      - httpbin.org
+      Proxy-Connection:
+      - keep-alive
+      User-Agent:
+      - Java/1.7.0_05
   response:
     status: 200
     headers:
-      Access-Control-Allow-Origin: '*'
-      Connection: keep-alive
-      Content-Length: '7641'
-      Content-Type: text/html; charset=utf-8
-      Date: Tue, 01 Oct 2013 21:54:07 GMT
-      Server: gunicorn/0.17.4
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '7641'
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Tue, 01 Oct 2013 21:54:07 GMT
+      Server:
+      - gunicorn/0.17.4
     body: |-
       <!DOCTYPE html>
       <html>

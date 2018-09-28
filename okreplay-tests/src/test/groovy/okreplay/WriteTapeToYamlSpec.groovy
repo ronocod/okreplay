@@ -17,17 +17,28 @@ import static okreplay.TapeMode.READ_WRITE
 
 class WriteTapeToYamlSpec extends Specification {
 
-  @Shared @AutoCleanup("deleteDir") def tapeRoot = Files.createTempDir()
-  @Shared def loader = new YamlTapeLoader(tapeRoot)
+  @Shared
+  @AutoCleanup("deleteDir")
+  def tapeRoot = Files.createTempDir()
+  @Shared
+  def loader = new YamlTapeLoader(tapeRoot)
 
-  @Shared RecordedRequest getRequest
-  @Shared RecordedRequest postRequest
-  @Shared RecordedResponse successResponse
-  @Shared RecordedResponse failureResponse
-  @Shared RecordedResponse imageResponse
-  @Shared RecordedResponse jsonResponse
-  @Shared File image
-  @Shared File json
+  @Shared
+  RecordedRequest getRequest
+  @Shared
+  RecordedRequest postRequest
+  @Shared
+  RecordedResponse successResponse
+  @Shared
+  RecordedResponse failureResponse
+  @Shared
+  RecordedResponse imageResponse
+  @Shared
+  RecordedResponse jsonResponse
+  @Shared
+  File image
+  @Shared
+  File json
 
   Yaml yamlReader
 
@@ -110,8 +121,8 @@ class WriteTapeToYamlSpec extends Specification {
 
     then:
     def yaml = yamlReader.loadAs(writer.toString(), Map)
-    yaml.interactions[0].request.headers[ACCEPT_LANGUAGE] == "en-GB,en"
-    yaml.interactions[0].request.headers[IF_NONE_MATCH] == "b00b135"
+    yaml.interactions[0].request.headers[ACCEPT_LANGUAGE] == ["en-GB,en"]
+    yaml.interactions[0].request.headers[IF_NONE_MATCH] == ["b00b135"]
   }
 
   void "writes response headers"() {
@@ -126,9 +137,10 @@ class WriteTapeToYamlSpec extends Specification {
 
     then:
     def yaml = yamlReader.loadAs(writer.toString(), Map)
-    yaml.interactions[0].response.headers[CONTENT_TYPE] == "text/plain; charset=utf-8"
-    yaml.interactions[0].response.headers[CONTENT_LANGUAGE] == "en-GB"
-    yaml.interactions[0].response.headers[CONTENT_ENCODING] == "none"
+    yaml.interactions[0].response.headers[CONTENT_TYPE] == ["text/plain; charset=utf-8"]
+    yaml.interactions[0].response.headers[CONTENT_LANGUAGE] == ["en-GB"]
+    yaml.interactions[0].response.headers[CONTENT_ENCODING] == ["none"]
+    yaml.interactions[0].response.headers[SET_COOKIE] == ["cookie1=value1", "cookie2=value2"]
   }
 
   void "can write requests with a body"() {
@@ -180,7 +192,7 @@ class WriteTapeToYamlSpec extends Specification {
 
     then:
     def yaml = yamlReader.loadAs(writer.toString(), Map)
-    yaml.interactions[0].response.headers[CONTENT_TYPE] == "image/png"
+    yaml.interactions[0].response.headers[CONTENT_TYPE] == ["image/png"]
     yaml.interactions[0].response.body == image.bytes
   }
 

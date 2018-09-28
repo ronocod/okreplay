@@ -29,10 +29,18 @@ interactions:
   request:
     method: GET
     uri: http://icanhascheezburger.com/
-    headers: {Accept-Language: 'en-GB,en', If-None-Match: b00b135}
+    headers: 
+      Accept-Language:
+      - 'en-GB,en'
+      If-None-Match: 
+      - b00b135
   response:
     status: 200
-    headers: {Content-Type: text/plain, Content-Language: en-GB}
+    headers: 
+      Content-Type: 
+      - text/plain
+      Content-Language: 
+      - en-GB
     body: O HAI!
 """
 

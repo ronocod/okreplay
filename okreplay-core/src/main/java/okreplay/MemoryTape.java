@@ -2,7 +2,9 @@ package okreplay;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.util.Collections.unmodifiableList;
@@ -19,6 +21,7 @@ abstract class MemoryTape implements Tape {
   private transient TapeMode mode = OkReplayConfig.DEFAULT_MODE;
   private transient MatchRule matchRule = OkReplayConfig.DEFAULT_MATCH_RULE;
   private final transient AtomicInteger orderedIndex = new AtomicInteger();
+  private final transient Map<Request, RecordedInteraction> matchedInteractions = new HashMap<>();
 
   @Override public String getName() {
     return name;
@@ -66,6 +69,7 @@ abstract class MemoryTape implements Tape {
 
   public void setInteractions(List<YamlRecordedInteraction> interactions) {
     this.interactions = new ArrayList<>(interactions);
+    matchedInteractions.clear();
   }
 
   @Override public boolean seek(Request request) {
@@ -81,7 +85,13 @@ abstract class MemoryTape implements Tape {
         throw new NonWritableTapeException();
       }
     } else {
-      return findMatch(request) >= 0;
+      int matchIndex = findMatch(request);
+      if (matchIndex >= 0) {
+        matchedInteractions.put(request, interactions.get(matchIndex).toImmutable());
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
@@ -105,6 +115,10 @@ abstract class MemoryTape implements Tape {
 
       return nextInteraction.response();
     } else {
+      RecordedInteraction matchedInteraction = matchedInteractions.get(request);
+      if (matchedInteraction != null) {
+        return matchedInteraction.response();
+      }
       int position = findMatch(request);
       if (position < 0) {
         throw new IllegalStateException("no matching recording found");
